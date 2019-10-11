@@ -19,8 +19,8 @@ abstract class BaseSceen extends egret.Sprite {
 		if (this.backgroundImage) {
 			let bg: egret.Bitmap = new egret.Bitmap();
 			bg.texture = RES.getRes(this.backgroundImage);
-			bg.width = Store.stageW;
-			bg.height = Store.stageH;
+			bg.width = app.store.common.stageW;
+			bg.height = app.store.common.stageH;
 			this.backgroundElement = bg;
 			this.addChild(bg);
 		}

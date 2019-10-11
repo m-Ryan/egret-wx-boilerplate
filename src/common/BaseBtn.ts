@@ -35,14 +35,14 @@ class BaseBtn extends egret.Sprite {
 
 		if (style.backgroundColor) {
 			let btn = new egret.Shape();
-			btn.graphics.beginFill(Util.formatColor(style.backgroundColor), style.opacity);
+			btn.graphics.beginFill(app.utils.formatColor(style.backgroundColor), style.opacity);
 			btn.graphics.drawRoundRect(0, 0, style.width, style.height, style.borderRadius || 0);
 			btn.graphics.endFill();
 			this.addChild(btn);
 		}
 
 		if (style.backgroundColorImage) {
-			let btn = Util.createBitmapByName(style.backgroundColorImage);
+			let btn = app.utils.createBitmapByName(style.backgroundColorImage);
 			btn.width = style.width;
 			btn.height = style.height;
 			this.addChild(btn);

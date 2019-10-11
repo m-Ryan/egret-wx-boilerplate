@@ -18,7 +18,7 @@ type WxUserLoginData = { errMsg: string; rawData: string; userInfo: WxUserInfo; 
 type RequestOptions<T> = {
         url: string,
         data?: any,
-        header?: { [key: string]: string },
+        header?: KeyObject<string>,
         'content-type'?: string,
         method?: string,
         dataType?: string,
@@ -39,10 +39,4 @@ declare namespace wx {
     export function login(options: WxOptions<{ errMsg: string; code: string }, { errMsg: string; code: string }, any>): void;
 
     export function request<T>(options: RequestOptions<T>): void;
-}
-
-declare let request: Request;
-declare interface Window {
-	request: Request;
-    store: Store
 }

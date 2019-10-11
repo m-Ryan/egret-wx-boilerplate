@@ -36,7 +36,7 @@ class BaseText extends egret.Sprite {
         this.y = style.y || 0;
 
         if (style.backgroundColorImage) {
-            let btn = Util.createBitmapByName(style.backgroundColorImage);
+            let btn = app.utils.createBitmapByName(style.backgroundColorImage);
             style.width && (btn.width = style.width);
             style.height && (btn.height = style.height);
             this.addChild(btn);
@@ -55,7 +55,7 @@ class BaseText extends egret.Sprite {
 
         if (style.backgroundColor) {
             text.background = true;
-            text.backgroundColor = Util.formatColor(style.backgroundColor);
+            text.backgroundColor = app.utils.formatColor(style.backgroundColor);
         }
 
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeEvent, this);

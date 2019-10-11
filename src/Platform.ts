@@ -1,13 +1,3 @@
-
-
-
-
-
-
-/**
-* 请在白鹭引擎的Main.ts中调用 platform.login() 方法调用至此处。
-*/
-
 class WxgamePlatform {
     name = 'wxgame'
     login() {
@@ -35,11 +25,11 @@ class WxgamePlatform {
             })
         })
     }
-    request<T>(options: RequestOptions<T>) {
+    request<T>(options: RequestOptions<T>): Promise<RequestResponse<T>> {
         return new Promise((resolve, reject)=> {
             wx.request({
                 ...options,
-                success(data) {
+                success(data: RequestResponse<T>) {
                     resolve(data)
                 },
                 fail(error) {
@@ -50,11 +40,4 @@ class WxgamePlatform {
     }
     createUserInfoButton = wx['createUserInfoButton']
 
-}
-
-declare let platform: WxgamePlatform;
-window.platform = new WxgamePlatform();
-
-declare interface Window {
-    platform: WxgamePlatform
 }

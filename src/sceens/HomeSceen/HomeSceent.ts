@@ -17,7 +17,7 @@ class HomeSceen extends BaseSceen {
 
 		});
 		this.addChild(loginBtn);
-		Services.get()
+		console.log(await app.services.getUser());
 
 	}
 

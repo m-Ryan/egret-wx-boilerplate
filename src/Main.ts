@@ -68,8 +68,8 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
-        Store.stage = this;
-        SceenController.loadLogin();
+        app.store.common.stage = this;
+        app.sceenController.loadLogin();
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

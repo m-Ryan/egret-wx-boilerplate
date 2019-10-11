@@ -9,10 +9,10 @@ class LoginSceen extends BaseSceen {
 		try {
 
 			// 获取登录code换clientId
-			const { code } = await platform.login();
-			const { userInfo } = await platform.getUserInfo();
-			store.user.baseInfo = userInfo;
-			SceenController.loadHome();
+			const { code } = await app.platform.login();
+			const { userInfo } = await app.platform.getUserInfo();
+			app.store.user.baseInfo = userInfo;
+			app.sceenController.loadHome();
 		} catch (error) {
 			this.createLogin();
 		}
@@ -21,7 +21,7 @@ class LoginSceen extends BaseSceen {
 
 	protected createLogin() {
 
-		const button = platform.createUserInfoButton({
+		const button = app.platform.createUserInfoButton({
 			type: 'text',
 			text: '获取用户信息111',
 			style: {
@@ -40,8 +40,8 @@ class LoginSceen extends BaseSceen {
 		button.onTap((data) => {
 			if (data.userInfo) {
 				button.destroy();
-				store.user.baseInfo = data.userInfo;
-				SceenController.loadHome();
+				app.store.user.baseInfo = data.userInfo;
+				app.sceenController.loadHome();
 			}
 		})
 	}
