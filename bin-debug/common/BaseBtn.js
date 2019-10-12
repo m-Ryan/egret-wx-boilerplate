@@ -26,13 +26,13 @@ var BaseBtn = (function (_super) {
         this.y = style.y || 0;
         if (style.backgroundColor) {
             var btn = new egret.Shape();
-            btn.graphics.beginFill(Util.formatColor(style.backgroundColor), style.opacity);
+            btn.graphics.beginFill(app.utils.formatColor(style.backgroundColor), style.opacity);
             btn.graphics.drawRoundRect(0, 0, style.width, style.height, style.borderRadius || 0);
             btn.graphics.endFill();
             this.addChild(btn);
         }
         if (style.backgroundColorImage) {
-            var btn = Util.createBitmapByName(style.backgroundColorImage);
+            var btn = app.utils.createBitmapByName(style.backgroundColorImage);
             btn.width = style.width;
             btn.height = style.height;
             this.addChild(btn);
@@ -73,3 +73,4 @@ var BaseBtn = (function (_super) {
     return BaseBtn;
 }(egret.Sprite));
 __reflect(BaseBtn.prototype, "BaseBtn");
+//# sourceMappingURL=BaseBtn.js.map

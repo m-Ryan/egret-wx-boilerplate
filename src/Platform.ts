@@ -2,6 +2,8 @@ class WxgamePlatform {
     name = 'wxgame'
     login() {
         return new Promise<{ errMsg: string; code: string }>((resolve, reject) => {
+
+
             wx.login({
                 success(data){
                     resolve(data);
@@ -15,6 +17,9 @@ class WxgamePlatform {
 
     getUserInfo() {
         return new Promise<WxUserLoginData>((resolve, reject) => {
+            if (app.constant.PROCESS_ENV === 'web') {
+                return resolve(app.constant.VIRTUAL_USER);
+            }
             wx.getUserInfo({
                 success(data){
                     resolve(data);
@@ -25,12 +30,12 @@ class WxgamePlatform {
             })
         })
     }
-    request<T>(options: RequestOptions<T>): Promise<RequestResponse<T>> {
+    request<T>(options: RequestOptions<T>): Promise<T> {
         return new Promise((resolve, reject)=> {
             wx.request({
                 ...options,
-                success(data: RequestResponse<T>) {
-                    resolve(data)
+                success(data: WxRequestResponse<T>) {
+                    resolve(data.data)
                 },
                 fail(error) {
                     reject(error)
@@ -38,6 +43,17 @@ class WxgamePlatform {
             })
         })
     }
-    createUserInfoButton = wx['createUserInfoButton']
+    createUserInfoButton(options: WxUserInfoButton) {
+        if (app.constant.PROCESS_ENV === 'web') {
+            return  { 
+                onTap:(fn: (data: any)=>void)=>{}, 
+                destroy:()=>{}
+            };
+        }
+
+        return wx['createUserInfoButton'](options);
+    }
+    
+     
 
 }

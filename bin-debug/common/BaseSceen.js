@@ -24,8 +24,8 @@ var BaseSceen = (function (_super) {
         if (this.backgroundImage) {
             var bg = new egret.Bitmap();
             bg.texture = RES.getRes(this.backgroundImage);
-            bg.width = Store.stageW;
-            bg.height = Store.stageH;
+            bg.width = app.store.common.stageW;
+            bg.height = app.store.common.stageH;
             this.backgroundElement = bg;
             this.addChild(bg);
         }
@@ -42,3 +42,4 @@ var BaseSceen = (function (_super) {
     return BaseSceen;
 }(egret.Sprite));
 __reflect(BaseSceen.prototype, "BaseSceen");
+//# sourceMappingURL=BaseSceen.js.map

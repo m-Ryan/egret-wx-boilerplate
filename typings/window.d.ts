@@ -1,3 +1,3 @@
 declare interface Window {
-    app: App
+    app: App;
 }

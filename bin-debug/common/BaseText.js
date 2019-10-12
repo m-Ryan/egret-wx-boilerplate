@@ -28,7 +28,7 @@ var BaseText = (function (_super) {
         this.x = style.x || 0;
         this.y = style.y || 0;
         if (style.backgroundColorImage) {
-            var btn = Util.createBitmapByName(style.backgroundColorImage);
+            var btn = app.utils.createBitmapByName(style.backgroundColorImage);
             style.width && (btn.width = style.width);
             style.height && (btn.height = style.height);
             this.addChild(btn);
@@ -44,7 +44,7 @@ var BaseText = (function (_super) {
         this.addChild(text);
         if (style.backgroundColor) {
             text.background = true;
-            text.backgroundColor = Util.formatColor(style.backgroundColor);
+            text.backgroundColor = app.utils.formatColor(style.backgroundColor);
         }
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.removeEvent, this);
     };
@@ -67,3 +67,4 @@ var BaseText = (function (_super) {
     return BaseText;
 }(egret.Sprite));
 __reflect(BaseText.prototype, "BaseText");
+//# sourceMappingURL=BaseText.js.map

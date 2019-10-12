@@ -1,7 +1,8 @@
 class Services {
+    
 
    getUser() {
-       return ApiRequest.get<IData>('http://www.maocanhua.cn/api/article/visitor/list?page=2&size=10&user_id=21')
+    //    return ApiRequest.get<IData>('http://www.maocanhua.cn/api/article/visitor/list?page=2&size=10&user_id=21')
    }
 
 }

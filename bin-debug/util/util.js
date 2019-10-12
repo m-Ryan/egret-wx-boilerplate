@@ -5,15 +5,16 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var Util = (function () {
     function Util() {
     }
-    Util.createBitmapByName = function (name) {
+    Util.prototype.createBitmapByName = function (name) {
         var result = new egret.Bitmap();
         var texture = RES.getRes(name);
         result.texture = texture;
         return result;
     };
-    Util.formatColor = function (color) {
+    Util.prototype.formatColor = function (color) {
         return ('0x' + color.replace('#', ''));
     };
     return Util;
 }());
 __reflect(Util.prototype, "Util");
+//# sourceMappingURL=util.js.map

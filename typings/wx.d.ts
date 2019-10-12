@@ -18,7 +18,7 @@ type WxUserLoginData = { errMsg: string; rawData: string; userInfo: WxUserInfo; 
 type RequestOptions<T> = {
         url: string,
         data?: any,
-        header?: KeyObject<string>,
+        header: KeyObject<string>,
         'content-type'?: string,
         method?: string,
         dataType?: string,
@@ -34,9 +34,21 @@ declare namespace wx {
 
     export function getUserInfo(options: WxOptions<WxUserLoginData, { errMsg: string; }, {}>): void;
 
-    export function createUserInfoButton(options: WxUserInfoButton): { onTap(fn: (data: WxUserLoginData) => any | { errMsg: string }): void, destroy(): void; };
+    export function createUserInfoButton(options: WxUserInfoButton): { onTap(fn: (data: WxUserLoginData) => any | { errMsg: string }): any, destroy(): void; };
 
     export function login(options: WxOptions<{ errMsg: string; code: string }, { errMsg: string; code: string }, any>): void;
 
     export function request<T>(options: RequestOptions<T>): void;
+
+    export function onShareAppMessage(fn: ()=> { title: string, imageUrlId?: string, imageUrl?: string, query?: string }): void; // 被动转发
+    
+    export function shareAppMessage(options: { withShareTicket?: boolean } & WxOptions<void, void, void>): void; // 主动转发
+    
+    export function showShareMenu(options: { withShareTicket?: boolean } & WxOptions<void, void, void>): void; // 主动转发
+
+    export function hideShareMenu(options: WxOptions<void, void, void> ): void; // 主动关闭转发
+    
+    
+    export function updateShareMenu(fn: ()=> { withShareTicket?: boolean, isUpdatableMessage?: boolean, activityId?: string, templateInfo?: any } & WxOptions<void, void, void>): void;
+
 }

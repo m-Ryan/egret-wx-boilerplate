@@ -71,24 +71,36 @@ var Main = (function (_super) {
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var result, userInfo;
+            var error_1, result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadResource()];
                     case 1:
                         _a.sent();
-                        this.createGameScene();
-                        return [4 /*yield*/, RES.getResAsync("description_json")];
+                        _a.label = 2;
                     case 2:
-                        result = _a.sent();
-                        this.startAnimation(result);
-                        return [4 /*yield*/, platform.login()];
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, app.request.post('https://m.lizhiweike.com/operating/promotion/promos_on', {
+                                data: {
+                                    password: "418418001",
+                                    phone: "13352691060"
+                                },
+                                params: {
+                                    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiQWNjb3VudFRva2VuIiwiaWQiOjgxNjc0MTM3LCJuaWNrbmFtZSI6Iuavm-eBv-WNjiIsInNleCI6IjEiLCJzdGF0dXMiOiJub3JtYWwiLCJzdWJzY3JpYmVkIjoxLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTU3MDg2Njg4OSwiZXhwIjoxNTcwODg4NDg5fQ.nhyFUXOJcOZrMM5bg31q2v6SlydAUCVrhfMNejQn7Bo"
+                                }
+                            })];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, platform.getUserInfo()];
+                        return [3 /*break*/, 5];
                     case 4:
-                        userInfo = _a.sent();
-                        console.log(userInfo);
+                        error_1 = _a.sent();
+                        console.log('error', error_1);
+                        return [3 /*break*/, 5];
+                    case 5:
+                        this.createGameScene();
+                        return [4 /*yield*/, RES.getResAsync("description_json")];
+                    case 6:
+                        result = _a.sent();
                         return [2 /*return*/];
                 }
             });
@@ -139,57 +151,10 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        Store.stage = this;
-        SceenController.loadLogin();
-    };
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    Main.prototype.createBitmapByName = function (name) {
-        var result = new egret.Bitmap();
-        var texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
-    };
-    /**
-     * 描述文件加载成功，开始播放动画
-     * Description file loading is successful, start to play the animation
-     */
-    Main.prototype.startAnimation = function (result) {
-        var _this = this;
-        var parser = new egret.HtmlTextParser();
-        var textflowArr = result.map(function (text) { return parser.parse(text); });
-        var textfield = this.textfield;
-        var count = -1;
-        var change = function () {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            var textFlow = textflowArr[count];
-            // 切换描述内容
-            // Switch to described content
-            textfield.textFlow = textFlow;
-            var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
-            tw.call(change, _this);
-        };
-        change();
-    };
-    /**
-     * 点击按钮
-     * Click the button
-     */
-    Main.prototype.onButtonClick = function (e) {
-        var panel = new eui.Panel();
-        panel.title = "Title";
-        panel.horizontalCenter = 0;
-        panel.verticalCenter = 0;
-        this.addChild(panel);
+        app.store.common.stage = this;
+        app.sceenController.loadLogin();
     };
     return Main;
 }(eui.UILayer));
 __reflect(Main.prototype, "Main");
+//# sourceMappingURL=Main.js.map

@@ -5,14 +5,18 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var SceenController = (function () {
     function SceenController() {
     }
-    SceenController.load = function (sceen) {
-        Store.stage.removeChildren();
-        Store.sceen = sceen;
-        Store.stage.addChild(sceen);
+    SceenController.prototype.load = function (sceen) {
+        app.store.common.stage.removeChildren();
+        app.store.common.sceen = sceen;
+        app.store.common.stage.addChild(sceen);
     };
-    SceenController.loadLogin = function () {
-        this.load(new LoginSceen());
+    SceenController.prototype.loadLogin = function (args) {
+        this.load(new LoginSceen(args));
+    };
+    SceenController.prototype.loadHome = function (args) {
+        this.load(new HomeSceen(args));
     };
     return SceenController;
 }());
 __reflect(SceenController.prototype, "SceenController");
+//# sourceMappingURL=SceenController.js.map
