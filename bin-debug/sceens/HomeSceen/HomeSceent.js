@@ -52,6 +52,8 @@ var HomeSceen = (function (_super) {
         return _this;
     }
     HomeSceen.prototype.init = function () {
+        this.fruit = app.utils.createBitmapByName('star_png');
+        this.addChild(this.fruit);
         this.setBackground({
             color: "#f1e05a"
         });
@@ -65,15 +67,33 @@ var HomeSceen = (function (_super) {
             });
         });
     };
+    Object.defineProperty(HomeSceen.prototype, "factor", {
+        get: function () {
+            return 0;
+        },
+        //计算方法参考 二次贝塞尔公式  
+        set: function (t) {
+            var fruit = this.fruit;
+            var p = QuadraticBezier({
+                x: 0,
+                y: 0
+            }, {
+                x: -300,
+                y: 0
+            }, {
+                x: -75,
+                y: 225
+            }, t);
+            fruit.x = p.x;
+            fruit.y = p.y;
+            console.log(p);
+        },
+        enumerable: true,
+        configurable: true
+    });
     HomeSceen.prototype.createFruit = function () {
-        var fruit = app.utils.createBitmapByName('star_png');
-        this.addChild(fruit);
-        var path = 'M150 0 L75 200 L225 200 Z';
-        fruit.x = 150;
-        fruit.y = 0;
-        var tw = egret.Tween.get(fruit);
-        tw.to({ x: 75, y: 200 }, 1000);
-        tw.to({ x: 225, y: 200 }, 1000);
+        console.log('cccc');
+        egret.Tween.get(this).to({ factor: 1 }, 3000);
     };
     return HomeSceen;
 }(BaseSceen));

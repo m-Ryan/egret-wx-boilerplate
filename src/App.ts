@@ -28,7 +28,7 @@ class App {
         } else {
              this.request = new EgretRequest(defaultRequest);
         }
-        this.constant = new Constant(env);
+        this.constant = new Constant(env) ;
     }
 }
 
