@@ -24,10 +24,7 @@ var EgretRequest = (function (_super) {
     }
     EgretRequest.prototype.use = function (url, method, payload) {
         var _this = this;
-        if (payload === void 0) { payload = {
-            header: {},
-            params: {}
-        }; }
+        if (payload === void 0) { payload = {}; }
         var httpUrl = url.indexOf('http') === 0 ? url : this.defaultbaseURL + url;
         if (payload.params) {
             var paramsText = Object.keys(payload.params).map(function (key) { return key + "=" + payload.params[key]; }).join('&');
@@ -80,4 +77,3 @@ var EgretRequest = (function (_super) {
     return EgretRequest;
 }(BaseRequest));
 __reflect(EgretRequest.prototype, "EgretRequest");
-//# sourceMappingURL=EgretRequest.js.map

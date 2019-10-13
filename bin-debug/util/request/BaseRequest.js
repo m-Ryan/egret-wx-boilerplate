@@ -85,4 +85,3 @@ var BaseRequest = (function () {
     return BaseRequest;
 }());
 __reflect(BaseRequest.prototype, "BaseRequest");
-//# sourceMappingURL=BaseRequest.js.map

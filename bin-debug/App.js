@@ -35,4 +35,3 @@ var App = (function () {
 }());
 __reflect(App.prototype, "App");
 window.app = new App(typeof wx === 'undefined' ? 'web' : 'wxgame');
-//# sourceMappingURL=App.js.map

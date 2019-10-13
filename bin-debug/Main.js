@@ -71,35 +71,15 @@ var Main = (function (_super) {
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var error_1, result;
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadResource()];
                     case 1:
                         _a.sent();
-                        _a.label = 2;
-                    case 2:
-                        _a.trys.push([2, 4, , 5]);
-                        return [4 /*yield*/, app.request.post('https://m.lizhiweike.com/operating/promotion/promos_on', {
-                                data: {
-                                    password: "418418001",
-                                    phone: "13352691060"
-                                },
-                                params: {
-                                    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiQWNjb3VudFRva2VuIiwiaWQiOjgxNjc0MTM3LCJuaWNrbmFtZSI6Iuavm-eBv-WNjiIsInNleCI6IjEiLCJzdGF0dXMiOiJub3JtYWwiLCJzdWJzY3JpYmVkIjoxLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTU3MDg2Njg4OSwiZXhwIjoxNTcwODg4NDg5fQ.nhyFUXOJcOZrMM5bg31q2v6SlydAUCVrhfMNejQn7Bo"
-                                }
-                            })];
-                    case 3:
-                        _a.sent();
-                        return [3 /*break*/, 5];
-                    case 4:
-                        error_1 = _a.sent();
-                        console.log('error', error_1);
-                        return [3 /*break*/, 5];
-                    case 5:
                         this.createGameScene();
                         return [4 /*yield*/, RES.getResAsync("description_json")];
-                    case 6:
+                    case 2:
                         result = _a.sent();
                         return [2 /*return*/];
                 }
@@ -157,4 +137,3 @@ var Main = (function (_super) {
     return Main;
 }(eui.UILayer));
 __reflect(Main.prototype, "Main");
-//# sourceMappingURL=Main.js.map

@@ -16,6 +16,12 @@ var WxgamePlatform = (function () {
     }
     WxgamePlatform.prototype.login = function () {
         return new Promise(function (resolve, reject) {
+            if (app.constant.PROCESS_ENV === 'web') {
+                return resolve({
+                    code: '02',
+                    errMsg: ''
+                });
+            }
             wx.login({
                 success: function (data) {
                     resolve(data);
@@ -60,7 +66,21 @@ var WxgamePlatform = (function () {
         }
         return wx['createUserInfoButton'](options);
     };
+    WxgamePlatform.prototype.getSystemInfo = function () {
+        return new Promise(function (resolve, reject) {
+            if (app.constant.PROCESS_ENV === 'web') {
+                return resolve(app.constant.VIRSUAL_SYSTEM_INFO);
+            }
+            wx.getSystemInfo({
+                success: function (data) {
+                    resolve(data);
+                },
+                fail: function (res) {
+                    reject(res);
+                }
+            });
+        });
+    };
     return WxgamePlatform;
 }());
 __reflect(WxgamePlatform.prototype, "WxgamePlatform");
-//# sourceMappingURL=Platform.js.map

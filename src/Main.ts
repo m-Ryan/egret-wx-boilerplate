@@ -30,21 +30,6 @@ class Main extends eui.UILayer {
 
     private async runGame() {
         await this.loadResource();
-        try {
-
-           const data =  await app.request.get('https://m.lizhiweike.com/operating/promotion/trial_products', {
-                data: {
-                    password: "418418001",
-                    phone: "13352691060"
-                },
-                params: {
-                    token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiQWNjb3VudFRva2VuIiwiaWQiOjgxNjc0MTM3LCJuaWNrbmFtZSI6Iuavm-eBv-WNjiIsInNleCI6IjEiLCJzdGF0dXMiOiJub3JtYWwiLCJzdWJzY3JpYmVkIjoxLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTU3MDg3Mzk5NywiZXhwIjoxNTcwODk1NTk3fQ.6UNwJGWwGS2PtpwGyFFAAkqCHnsnspQ94kqSR9asCYs`
-                }
-            });
-
-        } catch (error) {
-            console.log('error',error)
-        }
         this.createGameScene();
         const result = await RES.getResAsync("description_json")
 

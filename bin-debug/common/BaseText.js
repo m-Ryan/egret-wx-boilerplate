@@ -67,4 +67,3 @@ var BaseText = (function (_super) {
     return BaseText;
 }(egret.Sprite));
 __reflect(BaseText.prototype, "BaseText");
-//# sourceMappingURL=BaseText.js.map

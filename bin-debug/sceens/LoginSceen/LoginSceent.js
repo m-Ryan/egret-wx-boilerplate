@@ -47,10 +47,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var LoginSceen = (function (_super) {
     __extends(LoginSceen, _super);
     function LoginSceen() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.name = 'login';
+        return _this;
     }
     LoginSceen.prototype.init = function () {
-        this.updatetBackgroundImage('bg2_jpg');
+        this.setBackground({
+            image: 'bg2_jpg'
+        });
         this.createElements();
     };
     LoginSceen.prototype.createElements = function () {
@@ -106,4 +110,3 @@ var LoginSceen = (function (_super) {
     return LoginSceen;
 }(BaseSceen));
 __reflect(LoginSceen.prototype, "LoginSceen");
-//# sourceMappingURL=LoginSceent.js.map

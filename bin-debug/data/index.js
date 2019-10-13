@@ -12,4 +12,3 @@ var Store = (function () {
     return Store;
 }());
 __reflect(Store.prototype, "Store");
-//# sourceMappingURL=index.js.map

@@ -73,4 +73,3 @@ var BaseBtn = (function (_super) {
     return BaseBtn;
 }(egret.Sprite));
 __reflect(BaseBtn.prototype, "BaseBtn");
-//# sourceMappingURL=BaseBtn.js.map

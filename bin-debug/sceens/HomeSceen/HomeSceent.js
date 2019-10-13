@@ -47,43 +47,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var HomeSceen = (function (_super) {
     __extends(HomeSceen, _super);
     function HomeSceen() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.name = 'home';
+        return _this;
     }
     HomeSceen.prototype.init = function () {
-        this.updatetBackgroundImage('defaultBg_png');
+        this.setBackground({
+            color: "#f1e05a"
+        });
         this.createElements();
     };
     HomeSceen.prototype.createElements = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loginBtn;
             return __generator(this, function (_a) {
-                loginBtn = new BaseBtn({
-                    x: 50,
-                    y: 50,
-                    width: 200,
-                    height: 100,
-                    backgroundColor: '#067785',
-                    text: '首页'
-                }, function () {
-                });
-                this.addChild(loginBtn);
                 this.createFruit();
                 return [2 /*return*/];
             });
         });
     };
     HomeSceen.prototype.createFruit = function () {
-        var fruit = app.utils.createBitmapByName('e4_png');
-        fruit.x = 50;
-        fruit.y = 50;
+        var fruit = app.utils.createBitmapByName('star_png');
         this.addChild(fruit);
+        var path = 'M150 0 L75 200 L225 200 Z';
+        fruit.x = 150;
+        fruit.y = 0;
         var tw = egret.Tween.get(fruit);
-        tw.wait(50, false);
-        // tw.call(this.addThisToParent,this);
-        tw.to({ x: 300, y: 300 }, 3000, egret.Ease.bounceOut);
-        ;
+        tw.to({ x: 75, y: 200 }, 1000);
+        tw.to({ x: 225, y: 200 }, 1000);
     };
     return HomeSceen;
 }(BaseSceen));
 __reflect(HomeSceen.prototype, "HomeSceen");
-//# sourceMappingURL=HomeSceent.js.map

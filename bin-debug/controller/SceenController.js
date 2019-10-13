@@ -7,7 +7,6 @@ var SceenController = (function () {
     }
     SceenController.prototype.load = function (sceen) {
         app.store.common.stage.removeChildren();
-        app.store.common.sceen = sceen;
         app.store.common.stage.addChild(sceen);
     };
     SceenController.prototype.loadLogin = function (args) {
@@ -19,4 +18,3 @@ var SceenController = (function () {
     return SceenController;
 }());
 __reflect(SceenController.prototype, "SceenController");
-//# sourceMappingURL=SceenController.js.map

@@ -9,4 +9,3 @@ var UserStore = (function () {
     return UserStore;
 }());
 __reflect(UserStore.prototype, "UserStore");
-//# sourceMappingURL=UserStore.js.map

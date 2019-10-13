@@ -9,47 +9,19 @@ class HomeSceen extends BaseSceen {
 	}
 
 	protected async createElements() {
-		app.platform.getSystemInfo();
-		const loginBtn = new BaseBtn({
-			x: 50,
-			y: 50,
-			width: 200,
-			height: 100,
-			backgroundColor: '#067785',
-			text: '首页'
-		}, () => {
-            wx.onShareAppMessage(() => {
-				return {
-					title: '转发标题'
-				}
-			})
-            console.log(wx.shareAppMessage);
-            wx.shareAppMessage({
-                success() {
-                    console.log('ssss')
-                },
-                fail(res) {
-                    console.log(res)
-                },
-                complete() {
-                   console.log('wqe') 
-                }
-            })
-		});
-		this.addChild(loginBtn);
 		this.createFruit();
 
 	}
 
 	protected createFruit() {
-		const fruit = app.utils.createBitmapByName('e4_png');
-		fruit.x = 50;
-		fruit.y= 50;
+		const fruit = app.utils.createBitmapByName('star_png');
 		this.addChild(fruit);
+		const path = 'M150 0 L75 200 L225 200 Z';
+		fruit.x = 150;
+		fruit.y= 0;
         var tw:egret.Tween = egret.Tween.get(fruit);
-        tw.wait(50, false);
-        // tw.call(this.addThisToParent,this);
-        tw.to({x:300,y:300},3000, egret.Ease.bounceOut);;
+        tw.to({x:75,y:200}, 1000);
+        tw.to({x:225,y:200}, 1000);
 
 	}
 

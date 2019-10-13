@@ -23,6 +23,7 @@ var WxRequest = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     WxRequest.prototype.use = function (url, method, payload) {
+        if (payload === void 0) { payload = {}; }
         var httpUrl = url.indexOf('http') === 0 ? url : this.defaultbaseURL + url;
         if (payload.params) {
             var paramsText = Object.keys(payload.params).map(function (key) { return key + "=" + payload.params[key]; }).join('&');
@@ -30,7 +31,7 @@ var WxRequest = (function (_super) {
                 httpUrl = httpUrl.replace('?', "?" + paramsText + "&");
             }
             else {
-                httpUrl += paramsText;
+                httpUrl += '?' + paramsText;
             }
         }
         var config = {
@@ -60,4 +61,3 @@ var WxRequest = (function (_super) {
     return WxRequest;
 }(BaseRequest));
 __reflect(WxRequest.prototype, "WxRequest");
-//# sourceMappingURL=WxRequest.js.map

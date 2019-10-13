@@ -2,7 +2,12 @@ class WxgamePlatform {
     name = 'wxgame'
     login() {
         return new Promise<{ errMsg: string; code: string }>((resolve, reject) => {
-
+            if (app.constant.PROCESS_ENV === 'web') {
+                return resolve({
+                    code: '02',
+                    errMsg: ''
+                });
+            }
 
             wx.login({
                 success(data){
