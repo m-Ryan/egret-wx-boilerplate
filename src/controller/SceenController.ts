@@ -2,7 +2,6 @@ class SceenController {
 
     private load<T extends BaseSceen>(sceen: T){
 		app.store.common.stage.removeChildren();
-		app.store.common.sceen = sceen;
 		app.store.common.stage.addChild(sceen);
 	}
 

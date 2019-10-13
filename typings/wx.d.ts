@@ -30,6 +30,8 @@ type RequestOptions<T> = {
 
 interface IStyle { left: number; top: number; width: number; height: number; lineHeight: number; backgroundColor: string; color: string; textAlign: string; fontSize: number; borderRadius: number; }
 
+type SystemInfo = { errMsg: string; model: string; pixelRatio: number; windowWidth: number; windowHeight: number; system: string; language: string; version: string; screenWidth: number; screenHeight: number; SDKVersion: string; brand: string; fontSizeSetting: number; benchmarkLevel: number; batteryLevel: number; statusBarHeight: number; safeArea: ISafeArea; platform: string; devicePixelRatio: number; } 
+interface ISafeArea { right: number; bottom: number; left: number; top: number; width: number; height: number; }
 declare namespace wx {
 
     export function getUserInfo(options: WxOptions<WxUserLoginData, { errMsg: string; }, {}>): void;
@@ -48,7 +50,8 @@ declare namespace wx {
 
     export function hideShareMenu(options: WxOptions<void, void, void> ): void; // 主动关闭转发
     
-    
     export function updateShareMenu(fn: ()=> { withShareTicket?: boolean, isUpdatableMessage?: boolean, activityId?: string, templateInfo?: any } & WxOptions<void, void, void>): void;
+
+    export function getSystemInfo(options: WxOptions<SystemInfo, { errMsg: string; }, void>): void;
 
 }

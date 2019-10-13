@@ -1,7 +1,10 @@
 class LoginSceen extends BaseSceen {
+	name = 'login';
 
 	protected init() {
-		this.updatetBackgroundImage('bg2_jpg');
+		this.setBackground({
+			image: 'bg2_jpg'
+		});
 		this.createElements();
 	}
 

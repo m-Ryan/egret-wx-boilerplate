@@ -1,11 +1,15 @@
 class HomeSceen extends BaseSceen {
+	name = 'home';
 
 	protected init() {
-		this.updatetBackgroundImage('defaultBg_png');
+		this.setBackground({
+			color: "#f1e05a"
+		});
 		this.createElements();
 	}
 
 	protected async createElements() {
+		app.platform.getSystemInfo();
 		const loginBtn = new BaseBtn({
 			x: 50,
 			y: 50,
@@ -16,16 +20,16 @@ class HomeSceen extends BaseSceen {
 		}, () => {
             wx.onShareAppMessage(() => {
 				return {
-				title: '转发标题'
+					title: '转发标题'
 				}
 			})
             console.log(wx.shareAppMessage);
-            wx.showShareMenu({
+            wx.shareAppMessage({
                 success() {
                     console.log('ssss')
                 },
-                fail() {
-                    console.log('123')
+                fail(res) {
+                    console.log(res)
                 },
                 complete() {
                    console.log('wqe') 

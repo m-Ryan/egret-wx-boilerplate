@@ -50,10 +50,24 @@ class WxgamePlatform {
                 destroy:()=>{}
             };
         }
-
         return wx['createUserInfoButton'](options);
     }
-    
+    getSystemInfo() {
+        
+        return new Promise<SystemInfo>((resolve, reject)=> {
+            if (app.constant.PROCESS_ENV === 'web') {
+                return resolve(app.constant.VIRSUAL_SYSTEM_INFO);
+            }
+            wx.getSystemInfo({
+                success(data){
+                    resolve(data);
+                },
+                fail(res) {
+                    reject(res);
+                }
+            })
+        })
+    }
      
 
 }
